@@ -1,0 +1,60 @@
+<div class="memo-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+      <span class="back-icon" (click)="goBack()">←</span>
+
+      <h2 class="title">Credit / Debit Memo</h2>
+
+      <div class="top-right">
+          <span class="profile-icon">👤</span>
+          <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+  </header>
+
+  <!-- SEARCH BOX -->
+  <div class="search-container">
+      <input type="text"
+             placeholder="Search ..."
+             [(ngModel)]="searchText"
+             (input)="applyFilter()">
+
+      <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrapper" *ngIf="filteredList.length > 0">
+      <table>
+          <thead>
+              <tr>
+                  <th>Bill No</th>
+                  <th>Bill Date</th>
+                  <th>Type</th>
+                  <th>Material</th>
+                  <th>Description</th>
+                  <th>Qty</th>
+                  <th>Unit</th>
+                  <th>Amount</th>
+                  <th>Currency</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let m of filteredList">
+                  <td>{{ m.billNo }}</td>
+                  <td>{{ formatDate(m.billDate) }}</td>
+                  <td>{{ convertType(m.billType) }}</td>   <!-- UPDATED -->
+                  <td>{{ m.matCode }}</td>
+                  <td>{{ m.description }}</td>
+                  <td>{{ m.quantity }}</td>
+                  <td>{{ convertUnit(m.unit) }}</td>
+                  <td>{{ m.amount }}</td>
+                  <td>{{ m.currency }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <p class="no-data" *ngIf="filteredList.length==0">No records found</p>
+
+</div>

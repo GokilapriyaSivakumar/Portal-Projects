@@ -1,0 +1,75 @@
+/* NAVBAR */
+.topbar {
+  position: fixed; top:0; width:100%; height:64px;
+  background:#4c5bc7; color:#fff; display:flex;
+  align-items:center; justify-content:space-between;
+  padding:0 22px; z-index:1000;
+}
+
+.back-icon { font-size:26px; cursor:pointer; }
+.page-title { position:absolute; left:50%; transform:translateX(-50%); font-size:22px; font-weight:700; }
+
+.top-actions { display:flex; gap:14px; align-items:center; }
+.profile-icon { font-size:28px; cursor:pointer; }
+.logout-btn { background:#ff4747;margin-right: 50px; padding:8px 14px; color:#fff; border:none; border-radius:6px; cursor:pointer; }
+.logout-btn:hover { background:#d63333; }
+
+/* PAGE BODY */
+.inquiry-page {
+  background:#eef1ff;
+  padding:100px 40px 40px;  /* Adjusted to avoid navbar overlap */
+  min-height:100vh;
+}
+
+/* SEARCH BAR NEW DESIGN */
+.search-wrapper {
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.search-wrapper input {
+  width:20%;                /* reduced size */
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #b7bef7;
+  font-size:15px;
+}
+
+.search-wrapper input:focus{
+  border-color:#4858d8;
+  box-shadow:0 0 4px rgba(75,85,228,0.5);
+}
+
+.clear-btn {
+  background:#4c5bc7;
+  color:#fff;
+  padding:10px 14px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+.clear-btn:hover { background:#3b49b9; }
+
+/* TABLE FULL WIDTH FIXED */
+.table-wrapper {
+  width:100%;
+  background:white;
+  padding:0;
+  border-radius:12px;
+  box-shadow:0 4px 16px rgba(76,91,199,.18);
+  overflow-x:auto;
+}
+
+table {
+  width:100%;         /* FULL WIDTH — right gap removed */
+  border-collapse: collapse;
+  font-size:15px;
+}
+
+thead tr { background:#4c5bc7; color:white; }
+th,td { padding:12px 14px; text-align:left; }
+
+tbody tr:nth-child(even){ background:#f1f2ff; }
+tbody tr:hover{ background:#e5e8ff; transition:.2s; }

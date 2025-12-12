@@ -1,0 +1,63 @@
+<header class="topbar">
+    <span class="back-icon" (click)="goBack()">←</span>
+
+    <h2 class="page-title">Inquiry List</h2>
+
+    <div class="top-actions">
+        <span class="profile-icon">👤</span>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+</header>
+
+<!-- ==================== PAGE ==================== -->
+<div class="inquiry-page">
+
+    <!-- SEARCH AREA -->
+    <div class="search-wrapper">
+        <input type="text" placeholder="Search"
+               [(ngModel)]="searchText" (input)="applyFilter()" />
+
+        <button class="clear-btn" (click)="clearSearch()">Clear</button>
+    </div>
+
+    <div *ngIf="loading" class="loading">Loading...</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <!-- FULL WIDTH TABLE -->
+    <div class="table-wrapper" *ngIf="!loading && filteredInquiries.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Inquiry No</th>
+                    <th>Item Date</th>
+                    <th>Material Code</th>
+                    <th>Description</th>
+                    <th>Order Qty</th>
+                    <th>Unit</th>
+                    <th>Status</th>
+                    <th>Req. Delivery Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+  <tr *ngFor="let i of filteredInquiries">
+    <td>{{ i.INQUIRY_NO }}</td>
+    <td>{{ i.ITEM_DATE | date:'dd-MM-yyyy'}}</td>
+    <td>{{ i.MAT_CODE }}</td>
+    <td>{{ i.DESCRIPTION }}</td>
+    <td>{{ i.ORDER_QTY }}</td>
+
+    <!-- EA → Each -->
+    <td>{{ i.UNIT === 'EA' ? 'Each' : i.UNIT }}</td>
+
+    <!-- A → Not Yet Processed -->
+    <td>{{ i.STATUS === 'A' ? 'Not Yet Processed' : i.STATUS }}</td>
+
+    <td>{{ i.REQ_DEL_DATE | date:'dd-MM-yyyy' }}</td>
+  </tr>
+</tbody>
+
+
+        </table>
+    </div>
+</div>

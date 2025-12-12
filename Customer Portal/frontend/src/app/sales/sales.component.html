@@ -1,0 +1,58 @@
+<div class="sales-page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <span class="back-icon" (click)="goBack()">←</span>
+
+        <h2 class="title">Sales Order List</h2>
+
+        <div class="top-right">
+            <span class="profile-icon">👤</span>
+            <button class="logout-btn" (click)="logout()">Logout</button>
+        </div>
+    </header>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <input type="text"
+            placeholder="Search ..."
+            [(ngModel)]="searchText"
+            (input)="filterData()">
+
+        <button class="clear-btn" (click)="clearSearch()">Clear</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="filteredSales.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sales Order No</th>
+                    <th>Order Date</th>
+                    <th>Material Code</th>
+                    <th>Description</th>
+                    <th>Order Qty</th>
+                    <th>Unit</th>
+                    <th>Status</th>
+                    <th>Delivery Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let s of filteredSales">
+                    <td>{{ s.VBELN || s.ORDER_NO }}</td>
+                    <td>{{ formatDate(s.ERDAT || s.ORDER_DATE) }}</td>
+                    <td>{{ s.MATNR || s.MAT_CODE }}</td>
+                    <td>{{ s.ARKTX || s.DESCRIPTION }}</td>
+                    <td>{{ s.KWMENG || s.ORDER_QTY }}</td>
+                    <td>{{ convertUnit(s.MEINS || s.UNIT) }}</td>
+                    <td>{{ convertStatus(s.STATUS) }}</td>
+                    <td>{{ formatDate(s.DATUM || s.REQ_DEL_DATE) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="no-data" *ngIf="filteredSales.length==0">No data found</p>
+
+</div>

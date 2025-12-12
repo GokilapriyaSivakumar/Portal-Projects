@@ -1,0 +1,66 @@
+<div class="invoice-page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <span class="back-icon" (click)="goBack()">←</span>
+
+        <h2 class="title">Invoice List</h2>
+
+        <div class="top-right">
+            <span class="profile-icon">👤</span>
+            <button class="logout-btn" (click)="logout()">Logout</button>
+        </div>
+    </header>
+
+    <!-- SEARCH -->
+    <div class="search-container">
+        <input type="text"
+               placeholder="Search ..."
+               [(ngModel)]="searchText"
+               (input)="applyFilter()" />
+
+        <button class="clear-btn" (click)="clearSearch()">Clear</button>
+    </div>
+
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="filteredInvoices.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Invoice No</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Currency</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let inv of filteredInvoices">
+                    <td>{{ inv.VBELN }}</td>
+                    <td>{{ formatDate(inv.FKDAT) }}</td>
+                    <td>{{ inv.ARKTX }}</td>
+                    <td>{{ inv.NETWR }}</td>
+                    <td>{{ inv.WAERK }}</td>
+
+                    <td>
+                        <button class="download-btn"
+                                (click)="downloadPdf(inv.VBELN)"
+                                [disabled]="loadingPdf[inv.VBELN]">
+
+                            <span *ngIf="!loadingPdf[inv.VBELN]">⬇ Download</span>
+                            <span *ngIf="loadingPdf[inv.VBELN]">Loading...</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="no-data" *ngIf="filteredInvoices.length===0 && !isLoading">
+        No invoices found
+    </p>
+
+</div>

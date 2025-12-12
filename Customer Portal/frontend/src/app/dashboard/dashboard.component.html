@@ -1,0 +1,63 @@
+<!-- ⭐ TOP NAVBAR - UPDATED LIKE EMPLOYEE PORTAL -->
+<header class="topbar">
+
+    <!-- HAMBURGER LEFT -->
+    <span class="hamburger" (click)="toggleSidebar(); $event.stopPropagation()">☰</span>
+
+    <!-- CENTER PAGE TITLE -->
+    <h2 class="portal-title">Customer Portal</h2>
+
+    <!-- RIGHT SIDE: PROFILE + LOGOUT -->
+    <div class="top-actions">
+        <span class="profile-icon" (click)="goTo('/profile')">👤</span>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+</header>
+
+
+<!-- ===============  SIDEBAR & BODY ================= -->
+<div class="dashboard-wrapper" [class.sidebar-open]="sidebarOpen">
+
+    <div class="dashboard-container" (click)="closeSidebarOnOutsideClick($event)">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar" [class.open]="sidebarOpen" (click)="$event.stopPropagation()">
+          <ul>
+            <li (click)="goTo('/inquiry')">📘 Inquiry</li>
+            <li (click)="goTo('/sales')">💼 Sales</li>
+            <li (click)="goTo('/delivery')">🚚 Delivery</li>
+
+            <li (click)="toggleFinancialMenu()">📄 Financial Sheet ▸</li>
+
+            <ul class="submenu" *ngIf="showFinancialSubmenu">
+              <li (click)="goTo('/invoice')">🧾 Invoice</li>
+              <li (click)="goTo('/payment')">💰 Payment</li>
+              <li (click)="goTo('/overall-sales')">📈 Overall Sales</li>
+              <li (click)="goTo('/credit-debit')">🔄 Credit / Debit</li>
+            </ul>
+
+            <li class="logout" (click)="logout()">Logout</li>
+          </ul>
+        </div>
+
+
+        <!-- MAIN CONTENT -->
+        <div class="body-content">
+
+            <div class="tiles top-tiles">
+              <div class="tile" (click)="goTo('/inquiry')">📘<br>Inquiry</div>
+              <div class="tile" (click)="goTo('/sales')">💼<br>Sales</div>
+              <div class="tile" (click)="goTo('/delivery')">🚚<br>Delivery</div>
+              <div class="tile" (click)="toggleFinancialMenu()">📄<br>Financial Sheet</div>
+            </div>
+
+            <div class="tiles subtiles" *ngIf="showFinancialSubmenu">
+              <div class="tile" (click)="goTo('/invoice')">🧾 Invoice</div>
+              <div class="tile" (click)="goTo('/payment')">💰 Payment</div>
+              <div class="tile" (click)="goTo('/overall-sales')">📈 Overall Sales</div>
+              <div class="tile" (click)="goTo('/credit-debit')">🔄 Credit / Debit</div>
+            </div>
+
+        </div>
+    </div>
+</div>

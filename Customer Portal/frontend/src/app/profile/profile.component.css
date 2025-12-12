@@ -1,0 +1,92 @@
+/* NAVBAR */
+.navbar-profile {
+  width: 100%;
+  height: 65px;
+  background: #4c5bc7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Back icon */
+.back-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-icon {
+  font-size: 28px;
+}
+
+.logout-btn {
+  background: #ff4747;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 60px;
+}
+.logout-btn:hover { background: #d73a3a; }
+
+
+/* Wrapper */
+.profile-wrapper {
+  width: 70%;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #eef2ff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(60,90,200,0.18);
+  font-family: "Inter", sans-serif;
+  margin-top: 90px;
+}
+
+/* Card */
+.profile-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+}
+
+/* Rows */
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 5px;
+  font-size: 17px;
+  border-bottom: 1px solid #e5e8ff;
+}
+
+.row:last-child { border-bottom: none; }
+
+/* Label + value */
+.label { color:#4047a0; font-weight:600; }
+.value { color:#000; font-weight:500; }
+
+/* Loading/Error */
+.loading { text-align:center;color:#4252d0;font-weight:600; }
+.error { text-align:center;color:red;font-weight:700; }

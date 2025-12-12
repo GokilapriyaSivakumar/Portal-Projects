@@ -1,0 +1,54 @@
+<div class="payment-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+      <span class="back-icon" (click)="goBack()">←</span>
+
+      <h2 class="title">Payment History</h2>
+
+      <div class="top-right">
+          <span class="profile-icon">👤</span>
+          <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+      <input type="text"
+             placeholder="Search ..."
+             [(ngModel)]="searchText"
+             (input)="applyFilter()">
+
+      <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrapper" *ngIf="filteredPayments.length > 0">
+      <table>
+          <thead>
+              <tr>
+                  <th>Billing Doc No</th>
+                  <th>Billing Date</th>
+                  <th>Due Date</th>
+                  <th>Net Value</th>
+                  <th>Currency</th>
+                  <th>Aging (Days)</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let p of filteredPayments">
+                  <td>{{ p.billingDocNo }}</td>
+                  <td>{{ p.billingDate | date:'dd-MM-yyyy' }}</td>   <!-- UPDATED -->
+                  <td>{{ p.dueDate     | date:'dd-MM-yyyy' }}</td>   <!-- UPDATED -->
+                  <td>{{ p.netValue }}</td>
+                  <td>{{ p.currency }}</td>
+                  <td>{{ p.agingDays }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <p class="no-data" *ngIf="filteredPayments.length == 0">No records found</p>
+
+</div>

@@ -1,0 +1,58 @@
+<div class="sales-page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <span class="back-icon" (click)="goBack()">←</span>
+
+        <h2 class="title">Overall Sales Summary</h2>
+
+        <div class="top-right">
+            <span class="profile-icon">👤</span>
+            <button class="logout-btn" (click)="logout()">Logout</button>
+        </div>
+    </header>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <input type="text"
+               placeholder="Search ..."
+               [(ngModel)]="searchText"
+               (input)="applyFilter()">
+
+        <button class="clear-btn" (click)="clearSearch()">Clear</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="filteredSales.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Billing Doc No</th>
+                    <th>Billing Date</th>
+                    <th>Material No</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Net Value</th>
+                    <th>Currency</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let s of filteredSales">
+                    <td>{{ s.BILLING_DOC_NO }}</td>
+                    <td>{{ formatDate(s.BILLING_DATE) }}</td>
+                    <td>{{ s.MATERIAL_NO }}</td>
+                    <td>{{ s.MATERIAL_DESC }}</td>
+                    <td>{{ s.BILLED_QTY }}</td>
+                    <td>{{ convertUnit(s.SALES_UNIT) }}</td>
+                    <td>{{ s.NET_VALUE }}</td>
+                    <td>{{ s.CURRENCY }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="no-data" *ngIf="filteredSales.length==0">No records found</p>
+
+</div>

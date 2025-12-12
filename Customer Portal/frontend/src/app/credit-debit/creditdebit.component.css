@@ -1,0 +1,58 @@
+.memo-page{
+  background:#eef1ff;
+  min-height:100vh;
+  padding-top:90px;
+  font-family:'Inter',sans-serif;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;top:0;width:100%;
+  height:70px;background:#5262D1;color:white;
+  display:flex;justify-content:space-between;
+  align-items:center;padding:0 25px;font-size:20px;
+  box-shadow:0 3px 12px rgba(0,0,0,0.18);
+}
+
+.back-icon{font-size:26px;cursor:pointer;}
+.title{font-size:24px;font-weight:700;}
+
+.top-right{display:flex;align-items:center;gap:12px;}
+.profile-icon{font-size:26px;}
+
+.logout-btn{
+  background:#ff4f4f;border:none;padding:8px 14px;
+  color:white;border-radius:6px;cursor:pointer;font-weight:600;
+  margin-right: 60px;
+}
+.logout-btn:hover{background:#d92020;}
+
+/* SEARCH */
+.search-container{
+  margin-top:25px;display:flex;padding:10px;gap:10px;
+}
+.search-container input{
+  width:20%;padding:10px;border-radius:8px;border:1px solid #b6baf7;
+}
+.clear-btn{
+  background:#5262D1;color:white;border:none;padding:10px 16px;border-radius:6px;
+}
+.clear-btn:hover{background:#3d4ec9;}
+
+/* TABLE */
+.table-wrapper{
+  width:95%;margin:25px auto;background:white;
+  border-radius:12px;padding:20px;box-shadow:0 3px 18px rgba(0,0,0,0.12);
+}
+table{width:100%;border-collapse:collapse;text-align:left;}
+th{
+  background:#5262D1;color:white;padding:14px;font-size:15px;
+}
+td{
+  padding:14px;border-bottom:1px solid #ececec;font-size:15px;
+}
+
+tbody tr:nth-child(even){background:#f4f4ff;}
+tbody tr:hover{background:#e4e7ff;transition:.2s;}
+
+.no-data{text-align:center;margin-top:20px;font-size:18px;color:#444;}

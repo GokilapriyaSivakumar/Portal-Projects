@@ -1,0 +1,64 @@
+.sales-page {
+  background:#eef1ff;
+  min-height:100vh;
+  padding-top:90px;
+  font-family:'Inter',sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position:fixed;top:0;width:100%;height:70px;
+  background:#5262D1;color:white;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;font-weight:600;z-index:50;
+}
+
+.back-icon{font-size:26px;cursor:pointer;}
+.title{font-size:24px;font-weight:700;}
+
+.top-right{
+  display:flex;align-items:center;gap:12px;
+}
+
+.profile-icon{font-size:28px;}
+.logout-btn{
+  background:#ff4f4f;margin-right: 60px; padding:8px 14px;border-radius:6px;
+  border:none;color:white;font-weight:600;cursor:pointer;
+}
+.logout-btn:hover{background:#e02626;}
+
+/* SEARCH */
+.search-container{
+  margin-top:25px;display:flex;
+  width: 30%;
+  padding: 10px;
+  gap:10px;
+}
+
+.search-container input{
+  width:45%;padding:10px;border-radius:8px;border:1px solid #b6baf7;
+}
+.clear-btn{
+  background:#5262D1;color:white;padding:10px 16px;border:none;border-radius:6px;
+}
+.clear-btn:hover{background:#3d4ec9;}
+
+/* TABLE */
+.table-wrapper{
+  width:95%;background:white;margin:25px auto;
+  border-radius:12px;padding:20px;
+  box-shadow:0 3px 18px rgba(0,0,0,0.12);
+}
+
+table{width:100%;border-collapse:collapse;}
+th{
+  background:#5262D1;color:white;padding:14px;text-align:left;
+}
+td{
+  padding:14px;border-bottom:1px solid #ececec;
+}
+
+tbody tr:nth-child(even){background:#f4f4ff;}
+tbody tr:hover{background:#e5e8ff;transition:.2s;}
+
+.no-data{text-align:center;margin-top:20px;font-size:18px;color:#444;}

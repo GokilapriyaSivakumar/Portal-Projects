@@ -1,0 +1,67 @@
+.invoice-page{
+  background:#eef1ff;
+  min-height:100vh;
+  padding-top:90px;
+  font-family:'Inter',sans-serif;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;top:0;width:100%;height:70px;
+  background:#5262D1;color:white;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;font-weight:600;z-index:50;
+}
+.back-icon{font-size:26px;cursor:pointer;font-weight:bold;}
+.title{font-size:24px;font-weight:700;}
+
+.top-right{display:flex;align-items:center;gap:12px;}
+.profile-icon{font-size:28px;}
+.logout-btn{
+  background:#ff4f4f;padding:8px 14px;border-radius:6px;
+  border:none;color:white;font-weight:600;cursor:pointer;
+  margin-right: 60px;
+}
+.logout-btn:hover{background:#d92727;}
+
+/* SEARCH */
+.search-container{
+  margin-top:25px;
+  display:flex;padding:10px;gap:10px;
+}
+.search-container input{
+  width:20%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #b7bdf8;
+}
+.clear-btn{
+  background:#5262D1;color:white;
+  border:none;padding:10px 14px;border-radius:6px;
+}
+.clear-btn:hover{background:#3c4cc7;}
+
+/* TABLE */
+.table-wrapper{
+  width:95%;background:white;margin:25px auto;
+  border-radius:12px;padding:20px;
+  box-shadow:0 3px 18px rgba(0,0,0,0.12);
+}
+table{width:100%;border-collapse:collapse;}
+
+th{
+  background:#5262D1;color:white;padding:14px;font-size:15px;text-align:left;
+}
+td{
+  padding:14px;border-bottom:1px solid #ececec;font-size:15px;
+}
+tbody tr:nth-child(even){background:#f4f4ff;}
+tbody tr:hover{background:#e4e7ff;transition:0.2s;}
+
+.download-btn{
+  background:#5262D1;color:white;border:none;padding:8px 14px;border-radius:6px;
+}
+.download-btn:hover{background:#3949c8;}
+.download-btn:disabled{background:#a6a6a6;cursor:not-allowed;}
+
+.no-data{text-align:center;margin-top:20px;font-size:18px;color:#444;}

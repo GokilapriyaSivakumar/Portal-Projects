@@ -1,0 +1,59 @@
+<div class="delivery-page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <span class="back-icon" (click)="goBack()">←</span>
+
+        <h2 class="title">Delivery List</h2>
+
+        <div class="top-right">
+            <span class="profile-icon">👤</span>
+            <button class="logout-btn" (click)="logout()">Logout</button>
+        </div>
+    </header>
+
+    <!-- 🔍 SEARCH BAR -->
+    <div class="search-container">
+        <input type="text"
+               placeholder="Search ..."
+               [(ngModel)]="searchText"
+               (input)="applyFilter()">
+        <button class="clear-btn" (click)="clearSearch()">Clear</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="filteredDelivery.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Delivery No</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>GI Date</th>
+                    <th>Material Code</th>
+                    <th>Description</th>
+                    <th>Delivery Qty</th>
+                    <th>Target Qty</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let d of filteredDelivery">
+                    <td>{{ d.DELIVERY_NO }}</td>
+                    <td>{{ formatDate(d.DELIVERY_DATE) }}</td>
+                    <td>{{ convertStatus(d.STATUS) }}</td>
+                    <td>{{ formatDate(d.GI_DATE) }}</td>
+                    <td>{{ d.MAT_CODE }}</td>
+                    <td>{{ d.DESCRIPTION }}</td>
+                    <td>{{ d.DELIVERY_QTY }}</td>
+                    <td>{{ d.TARGET_QTY }}</td>
+                    <td>{{ convertUnit(d.UNIT) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="no-data" *ngIf="filteredDelivery.length == 0">No Delivery Records Found</p>
+
+</div>

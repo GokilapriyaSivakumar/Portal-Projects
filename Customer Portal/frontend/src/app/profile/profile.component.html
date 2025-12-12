@@ -1,0 +1,47 @@
+<!-- 🔷 NAVBAR -->
+<header class="navbar-profile">
+    <span class="back-icon" (click)="goBack()">←</span>
+
+    <h2 class="title">Customer Profile</h2>
+
+    <div class="nav-right">
+        <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+</header>
+
+
+<!-- MAIN CONTAINER -->
+<div class="profile-wrapper">
+
+  <div *ngIf="loading" class="loading">Loading profile...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="profile && !loading" class="profile-card">
+
+      <div class="row">
+        <span class="label">Customer Number:</span>
+        <span class="value">{{ profile.CUSTOMER_NUMBER }}</span>
+      </div>
+
+      <div class="row">
+        <span class="label">Name:</span>
+        <span class="value">{{ profile.NAME }}</span>
+      </div>
+
+      <div class="row">
+        <span class="label">City:</span>
+        <span class="value">{{ profile.CITY }}</span>
+      </div>
+
+      <div class="row">
+        <span class="label">Country:</span>
+        <span class="value">{{ profile.COUNTRY }}</span>
+      </div>
+
+      <div class="row">
+        <span class="label">Postal Code:</span>
+        <span class="value">{{ profile.POSTAL }}</span>
+      </div>
+
+  </div>
+</div>

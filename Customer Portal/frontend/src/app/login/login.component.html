@@ -1,0 +1,35 @@
+<div class="login-wrapper">
+
+  <div class="login-card">
+
+    <!-- LEFT SIDE IMAGE -->
+    <div class="card-left">
+      <img src="/login.jpg" alt="Illustration" class="card-img" />
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+    <div class="card-right">
+      <h2>Customer Portal</h2>
+
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+        <div class="input-group">
+          <span class="icon">👤</span>
+          <input type="text" placeholder="Customer ID "
+                 name="userid" [(ngModel)]="userid" required />
+        </div>
+
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" placeholder="Password"
+                 name="password" [(ngModel)]="password" required />
+        </div>
+
+        <button type="submit">Login</button>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
