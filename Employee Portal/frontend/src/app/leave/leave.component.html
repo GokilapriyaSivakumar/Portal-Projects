@@ -1,0 +1,127 @@
+<div class="leave-page">
+
+  <header class="topbar">
+      <button class="back-btn" (click)="goBack()">←</button>
+      <h2 class="portal-title">Leave Management</h2>
+
+      <div class="top-actions">
+          <div class="avatar-box">
+              <span class="avatar-emoji">👤</span>
+              <span class="userid">{{ empId }}</span>
+          </div>
+          <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+  </header>
+
+  <p class="sub-text">View and manage your leave records</p>
+
+  <div class="summary-section" *ngIf="leaves.length>0">
+      <div class="summary-card"><h3>{{ totalApproved }}</h3><p>Total Approved Days</p></div>
+      <div class="summary-card"><h3>{{ leaves.length }}</h3><p>Total Records</p></div>
+      <div class="summary-card"><h3>{{ availableLeaves }}</h3><p>Available Quota</p></div>
+  </div>
+
+
+  <!-- CHARTS ROW 1 -->
+<div class="chart-row">
+    <div class="chart-box small-chart">
+      <h3>Leave Type Distribution</h3>
+      <canvas #typeCanvas></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h3>Leave Timeline</h3>
+      <canvas #monthCanvas></canvas>
+    </div>
+</div>
+
+<!-- CHARTS ROW 2 -->
+<div class="chart-row">
+    <div class="chart-box status-box">
+      <h3>Leave Status Overview</h3>
+
+      <div class="status-line"><span>Approved</span> <div class="bar green" [style.width]="approvedPercent"></div> {{ approvedPercent }}</div>
+      <div class="status-line"><span>Pending</span> <div class="bar yellow" [style.width]="pendingPercent"></div> {{ pendingPercent }}</div>
+      <div class="status-line"><span>Rejected</span> <div class="bar red" [style.width]="rejectedPercent"></div> {{ rejectedPercent }}</div>
+    </div>
+
+    <div class="chart-box small-chart">
+      <h3>Quota Utilization</h3>
+      <canvas #quotaCanvas></canvas>
+    </div>
+</div>
+
+
+
+
+  <!-- <div class="chart-row">
+      <div class="chart-box">
+        <h3>Leave Type Distribution</h3>
+        <canvas #typeCanvas></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>Leave Timeline</h3>
+        <canvas #monthCanvas></canvas>
+      </div>
+  </div>
+
+  <div class="chart-row">
+      <div class="chart-box status-box">
+        <h3>Leave Status Overview</h3>
+        <div class="status-line"><span>Approved</span> <div class="bar green" [style.width]="approvedPercent"></div> {{ approvedPercent }}</div>
+        <div class="status-line"><span>Pending</span> <div class="bar yellow" [style.width]="pendingPercent"></div> {{ pendingPercent }}</div>
+        <div class="status-line"><span>Rejected</span> <div class="bar red" [style.width]="rejectedPercent"></div> {{ rejectedPercent }}</div>
+      </div>
+
+      <div class="chart-box">
+        <h3>Quota Utilization</h3>
+        <canvas #quotaCanvas></canvas>
+      </div>
+  </div> -->
+
+  <div class="leave-table">
+      <h3>Leave Records</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Leave Type</th>
+            <th>Duration</th>
+            <th>Status</th>
+            <th>Applied Date</th>
+            <th>Approved Days</th>
+            <th>Quota</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let row of leaves">
+
+            <!-- 🆕 Converted Names instead of 0300 / 0720 -->
+            <td>
+              {{
+                row.ABSENCE_TYPE === '0300' ? 'Sick Leave' :
+                row.ABSENCE_TYPE === '0720' ? 'Annual Leave' :
+                'Educational Leave'
+              }}
+            </td>
+
+            <td>{{ format(row.START_DATE) }} → {{ format(row.END_DATE) }}</td>
+
+            <td>
+              <span class="badge" 
+                [class.approved]="row.FULLDAY=='X'" 
+                [class.pending]="row.FULLDAY!='X'">
+                {{ row.FULLDAY=='X' ? 'APPROVED':'PENDING' }}
+              </span>
+            </td>
+
+            <td>{{ row.APPLY_DATE !== '0000-00-00' ? format(row.APPLY_DATE) : '-' }}</td>
+            <td>{{ row.ABWTG }}</td>
+            <td>{{ quotaCalc(row) }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+</div>

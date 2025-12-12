@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+/* Hide Edge/IE built-in password reveal */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none !important;
+}
+
+/* Hide Chrome/Edge built-in password toggle button (where supported) */
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-password-toggle {
+  visibility: hidden !important;
+  display: none !important;
+}

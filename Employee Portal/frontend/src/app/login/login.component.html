@@ -1,0 +1,40 @@
+<html>
+
+<div class="login-wrapper">
+
+  <div class="login-card">
+    <h2>Employee Login</h2>
+
+    <!-- Status Messages -->
+    <p *ngIf="loading" class="info-msg">🔄 Logging in...</p>
+    <p *ngIf="errorMsg" class="error-msg">❌ {{ errorMsg }}</p>
+    <p *ngIf="successMsg" class="success-msg">✅ {{ successMsg }}</p>
+
+    <!-- Employee ID -->
+    <label>Employee ID</label>
+    <div class="input-box">
+      <span class="icon">👤</span>
+      <input
+        type="text"
+        placeholder="Enter Employee ID"
+        [(ngModel)]="empId"
+      />
+    </div>
+
+    <!-- Password -->
+    <label>Password</label>
+    <div class="input-box">
+      <span class="icon">🔒</span>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="password"
+      />
+    </div>
+
+    <button (click)="onLogin()" [disabled]="loading">
+      LOGIN
+    </button>
+  </div>
+
+</div>

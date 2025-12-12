@@ -1,0 +1,141 @@
+.dashboard-wrapper {
+  height: 100vh;
+  background:#e9f7ee;
+  font-family:"Inter", sans-serif;
+}
+
+/* HEADER */
+.topbar {
+  height:65px;
+  background:#006b3b;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  box-shadow:0 3px 12px rgba(0,0,0,0.15);
+}
+
+.menu-btn {
+  background:none;
+  color:white;
+  font-size:24px;
+  border:none;
+  cursor:pointer;
+}
+
+.portal-title {
+  font-size:22px;
+  font-weight:700;
+}
+
+/* RIGHT SECTION */
+.top-actions {
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+/* Avatar */
+.avatar-box {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+}
+
+.avatar-emoji {
+  width:42px;
+  height:42px;
+  background:white;
+  color:#004d2a;
+  border-radius:50%;
+  font-size:22px;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid white;
+  transition:0.2s ease;
+  box-shadow:0 3px 7px rgba(0,0,0,0.22);
+}
+
+.avatar-emoji:hover {
+  transform:scale(1.07);
+}
+
+.userid {
+  font-size:14px;
+  font-weight:600;
+}
+
+/* 🔴 LOGOUT BUTTON TOP RIGHT */
+.logout-btn {
+  background:#ff4b4b;
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.logout-btn:hover {
+  background:#d62828;
+  transform:scale(1.05);
+}
+
+/* SIDEBAR */
+.sidebar {
+  position:fixed;
+  top:65px;
+  left:-400px;
+  width:230px;
+  height:calc(100vh - 65px);
+  background:#004d2a;
+  padding:20px;
+  color:white;
+  transition:0.3s;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.sidebar.open { left:0; }
+
+.sidebar a {
+  color:white;
+  text-decoration:none;
+  padding:12px;
+  border-radius:6px;
+  font-size:16px;
+  transition:0.2s;
+}
+
+.sidebar a:hover { background:#02874c; }
+
+/* CONTENT */
+.content { padding:40px; transition:margin-left 0.3s; }
+.content.shift { margin-left:230px; }
+
+.welcome { font-size:28px; font-weight:700; color:#004d2a; }
+
+/* TILES */
+.tiles { display:flex; gap:25px; flex-wrap:wrap; }
+.tile {
+  width:350px;
+  padding:40px;
+  font-size: larger;
+  border-radius:12px;
+  background:white;
+  cursor:pointer;
+  box-shadow:0px 6px 18px rgba(0,100,50,0.15);
+  transition:0.3s;
+}
+.tile:hover {
+  transform:translateY(-4px);
+  border-left:6px solid #0a8f53;
+  box-shadow:0 12px 30px rgba(0,100,50,0.25);
+}
+.tile p { margin-top:5px; font-size:13px; }

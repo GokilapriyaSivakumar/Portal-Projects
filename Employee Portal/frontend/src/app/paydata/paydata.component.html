@@ -1,0 +1,58 @@
+<div class="paydata-wrapper">
+
+  <!-- 🔹 TOP NAVBAR (LIKE DASHBOARD) -->
+  <header class="topbar">
+
+    <!-- Back Button -->
+    <button class="back-btn" (click)="goBack()">←</button>
+
+    <h2 class="portal-title">Employee Pay Data</h2>
+
+    <div class="top-actions">
+
+      <!-- Profile + Emp ID -->
+      <div class="avatar-box" (click)="goToProfile()">
+        <div class="avatar-emoji">👤</div>
+        <span class="userid">{{ empId }}</span>
+      </div>
+
+      <!-- Logout -->
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <!-- PAY DATA CARD -->
+  <div class="pay-card" *ngIf="!loading && payDataList.length > 0">
+      
+      <div class="row"><label>EMP ID:</label> <p>{{ payDataList[0].EMP_ID }}</p></div>
+      <div class="row"><label>Name:</label> <p>{{ payDataList[0].NAME }}</p></div>
+      <div class="row"><label>Company Code:</label> <p>{{ payDataList[0].COMPANY_CODE }}</p></div>
+      <div class="row"><label>Cost Center:</label> <p>{{ payDataList[0].COST_CENTER }}</p></div>
+      <div class="row"><label>Wage Type:</label> <p>{{ payDataList[0].WAGE_TYPE }}</p></div>
+      <div class="row"><label>PS Group:</label> <p>{{ payDataList[0].PS_GROUP }}</p></div>
+      <div class="row"><label>PS Level:</label> <p>{{ payDataList[0].PS_LEVEL }}</p></div>
+
+      <!-- 🔥 Gender Converted -->
+      <div class="row"><label>Gender:</label> <p>{{ payDataList[0].GENDER === '1' ? 'Male' : 'Female' }}</p></div>
+
+      <!-- 🔥 DOB Format Converted -->
+      <div class="row"><label>DOB:</label> <p>{{ formatDate(payDataList[0].DOB) }}</p></div>
+
+      <div class="row"><label>Nationality:</label> <p>{{ payDataList[0].NATIONALITY }}</p></div>
+      <div class="row"><label>Amount:</label> <p>{{ payDataList[0].AMOUNT }}</p></div>
+      <div class="row"><label>Currency:</label> <p>{{ payDataList[0].CURRENCY_KEY }}</p></div>
+      <div class="row"><label>Hours Worked:</label> <p>{{ payDataList[0].WORKING_HOURS }}</p></div>
+
+      <!-- DOWNLOAD BUTTON STATUS -->
+      <button class="download-btn" (click)="downloadPDF(payDataList[0].EMP_ID)">
+        <ng-container *ngIf="downloading">⏳ Downloading...</ng-container>
+        <ng-container *ngIf="!downloading && downloaded">✅ Downloaded!</ng-container>
+        <ng-container *ngIf="!downloading && !downloaded">⬇ Download Payslip PDF</ng-container>
+      </button>
+  </div>
+
+  <!-- Loader & No Data -->
+  <p *ngIf="loading">Loading Pay Data...</p>
+  <p *ngIf="!loading && payDataList.length==0" class="error">No Pay Records Found</p>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="dashboard-wrapper">
+
+  <!-- 🔷 TOP NAVBAR -->
+  <header class="topbar">
+    <button class="menu-btn" (click)="toggleSidebar()">☰</button>
+
+    <h2 class="portal-title">Employee Portal</h2>
+
+    <!-- RIGHT SIDE AREA -->
+    <div class="top-actions">
+
+      <!-- 🟢 Avatar + EmpId (click → profile) -->
+      <div class="avatar-box" (click)="goToProfile()">
+        <div class="avatar-emoji">👤</div>
+        <span class="userid">{{ empId }}</span>
+      </div>
+
+      <!-- 🔴 Logout Button -->
+      <button class="logout-btn" (click)="logout()">Logout</button>
+
+    </div>
+  </header>
+
+
+  <!-- 🔷 SIDEBAR -->
+  <nav class="sidebar" [class.open]="sidebarOpen">
+    <a routerLink="/leave" (click)="toggleSidebar()">📝 Leave</a>
+    <a routerLink="/paydata" (click)="toggleSidebar()">💰 Pay Data</a>
+  </nav>
+
+
+  <!-- 🔷 MAIN CONTENT -->
+  <main class="content" [class.shift]="sidebarOpen">
+
+    <h1 class="welcome">Welcome {{ empId }}</h1>
+
+    <div class="tiles">
+      <div class="tile" routerLink="/leave"> 📝 Leave <p>Apply / status</p></div>
+      <div class="tile" routerLink="/paydata"> 💰 Pay Data <p>Salary & PDF</p></div>
+    </div>
+
+  </main>
+
+</div>

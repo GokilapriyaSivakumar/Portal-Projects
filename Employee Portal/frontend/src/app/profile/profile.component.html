@@ -1,0 +1,40 @@
+<header class="topbar">
+
+  <!-- Back Button (Left) -->
+  <button class="back-btn" (click)="goBack()">←</button>
+
+  <!-- Center Page Title -->
+  <h2 class="portal-title"> 👤 Employee Profile</h2>
+
+  <!-- Profile Right (Avatar + ID + Logout) -->
+  <div class="top-actions">
+      <div class="avatar-box">
+          <span class="userid">{{ empId }}</span>
+      </div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+</header>
+
+
+<!-- PROFILE CARD -->
+<div class="profile-container" *ngIf="!loading && data">
+
+  <div class="profile-card">
+    
+
+    <div class="row"><label>Employee ID:</label><p>{{ data.empId }}</p></div>
+    <div class="row"><label>First Name:</label><p>{{ data.firstName }}</p></div>
+    <div class="row"><label>Last Name:</label><p>{{ data.lastName }}</p></div>
+    <div class="row"><label>DOB:</label><p>{{ data.dob }}</p></div>
+    <div class="row"><label>Gender:</label><p>{{ data.gender }}</p></div>
+    <div class="row"><label>Nationality:</label><p>{{ data.nationality }}</p></div>
+    <div class="row"><label>Email:</label><p>{{ data.email }}</p></div>
+    <div class="row"><label>Position:</label><p>{{ data.position }}</p></div>
+    <div class="row"><label>Org Unit:</label><p>{{ data.orgUnit }}</p></div>
+    <div class="row"><label>Payroll Area:</label><p>{{ data.payrollArea }}</p></div>
+    <div class="row"><label>Employee Group:</label><p>{{ data.employeeGroup }}</p></div>
+    <div class="row"><label>Company Code:</label><p>{{ data.companyCode }}</p></div>
+
+  </div>
+</div>
