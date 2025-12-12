@@ -1,0 +1,97 @@
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="left-group">
+    <span class="menu-icon" (click)="toggleMenu()">☰</span>
+    <h2 class="portal-title">Vendor Portal</h2>
+  </div>
+
+  <div class="right-group">
+    <span class="profile-icon" (click)="goProfile()">👤</span>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" [class.open]="menuOpen">
+
+  <!-- MAIN MENU -->
+  <ng-container *ngIf="!showFinance">
+
+    <div class="side-item" (click)="goPO()">📦 Purchase Orders</div>
+    <div class="side-item" (click)="goGR()">📦 GR</div>
+    <div class="side-item" (click)="goRFQ()">📝 RFQ</div>
+    <div class="side-item" (click)="openFinance()">💰 Financial Sheets</div>
+
+  </ng-container>
+
+  <!-- FINANCIAL MENU -->
+  <ng-container *ngIf="showFinance">
+
+    <div class="side-item" (click)="goInvoices()">📄 Invoices</div>
+    <div class="side-item" (click)="goPayment()">💵 Payment</div>
+    <div class="side-item" (click)="goCD()">📊 Credit / Debit</div>
+
+    <div class="side-item back-btn" (click)="closeFinance()">⬅ Back</div>
+
+  </ng-container>
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content-area" [class.shift]="menuOpen">
+
+  <h2 class="welcome">Welcome {{ vendorId }}</h2>
+
+  <!-- MAIN TILES -->
+<div class="tiles" *ngIf="!showFinance">
+
+  <div class="tile" (click)="goRFQ()">
+    <div class="icon">📝</div>
+    <div class="tile-title">RFQ</div>
+    <div class="tile-desc">Request for Quotation</div>
+  </div>
+
+  <div class="tile" (click)="goPO()">
+    <div class="icon">📦</div>
+    <div class="tile-title">Purchase Orders</div>
+    <div class="tile-desc">View All PO Details</div>
+  </div>
+
+  <div class="tile" (click)="goGR()">
+    <div class="icon">📥</div>
+    <div class="tile-title">Goods Receipt</div>
+    <div class="tile-desc">Track Received Goods</div>
+  </div>
+
+  <div class="tile" (click)="openFinance()">
+    <div class="icon">💰</div>
+    <div class="tile-title">Financial Sheets</div>
+    <div class="tile-desc">Invoices • Payment • Credits</div>
+  </div>
+
+</div>
+
+
+  <!-- FINANCIAL SUB-TILES -->
+<div class="finance-tiles" *ngIf="showFinance">
+
+  <div class="tile small" (click)="goInvoices()">
+    <div class="icon small-icon">📄</div>
+    <div class="tile-title">Invoices</div>
+    <div class="tile-desc">Vendor Invoice Summary</div>
+  </div>
+
+  <div class="tile small" (click)="goPayment()">
+    <div class="icon small-icon">💵</div>
+    <div class="tile-title">Payment</div>
+    <div class="tile-desc">Payment & Due Status</div>
+  </div>
+
+  <div class="tile small" (click)="goCD()">
+    <div class="icon small-icon">📊</div>
+    <div class="tile-title">Credit / Debit</div>
+    <div class="tile-desc">Adjustments Overview</div>
+  </div>
+
+</div>
+

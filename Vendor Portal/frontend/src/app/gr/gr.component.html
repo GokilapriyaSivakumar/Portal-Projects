@@ -1,0 +1,76 @@
+<!-- NAVBAR -->
+<div class="navbar">
+  <button class="back-btn" (click)="goBack()">←</button>
+
+  <h2>Welcome {{ vendorId }}</h2>
+
+  <div class="right">
+    <span class="profile-icon" (click)="goProfile()">👤</span>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2 class="title">Goods Receipt Details</h2>
+
+  <!-- SEARCH BAR -->
+  <div class="search-area">
+    <input
+  type="text"
+  [(ngModel)]="searchTerm"
+  (input)="applyFilter()"
+  placeholder="Search by Material Doc / Material / PO Number..."
+  class="search-box"
+/>
+
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Material Doc</th>
+          <th>Doc Year</th>
+          <th>Item</th>
+          <th>Material</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Posting Date</th>
+          <th>GR Date</th>
+          <th>PO Number</th>
+          <th>PO Item</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let gr of filteredGR">
+          <td>{{ gr.MaterialDoc }}</td>
+          <td>{{ gr.DocYear }}</td>
+          <td>{{ gr.ItemNumber }}</td>
+          <td>{{ gr.Material }}</td>
+
+          <td>{{ gr.Quantity }}</td>
+
+          <!-- Unit Conversion -->
+          <td>
+            {{
+              gr.Unit === 'EA' ? 'Each' :
+              gr.Unit === 'KG' ? 'Kilogram' :
+              gr.Unit
+            }}
+          </td>
+
+          <!-- Date Format -->
+          <td>{{ gr.PostingDate | date : 'dd-MM-yyyy' }}</td>
+          <td>{{ gr.GrDate | date : 'dd-MM-yyyy' }}</td>
+
+          <td>{{ gr.PoNumber }}</td>
+          <td>{{ gr.PoItem }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

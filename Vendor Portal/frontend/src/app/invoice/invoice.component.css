@@ -1,0 +1,147 @@
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn {
+  background: #d8c6aa;
+  border: none;
+  padding: 8px 14px;
+  font-size: 22px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.welcome {
+  margin: 0;
+  font-size: 22px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background: #e34545;
+  border: none;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* PAGE TITLE */
+.page-title {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+/* SEARCH + FILTER */
+.filter-container {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box {
+  width: 330px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid gray;
+  font-size: 16px;
+}
+
+.clear-btn,
+.print-btn {
+  background: #d8c6aa;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* TABLE */
+.table-container {
+  margin: 20px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.custom-table th {
+  background: black;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.custom-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+  background: #3748e5;
+  color: white;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* LOADER */
+.loader {
+  border: 3px solid #ffffff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.no-data {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 18px;
+  color: gray;
+}
+
+* {
+  box-sizing: border-box;
+}
+ 
+body::-webkit-scrollbar {
+  height: 0 !important;   /* hide horizontal scrollbar */
+}
+ 
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;            /* show scroll only for table */
+}
+ 
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #b7b7b7;
+  border-radius: 4px;
+}

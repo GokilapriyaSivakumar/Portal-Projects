@@ -1,0 +1,85 @@
+<!-- NAVBAR -->
+<div class="navbar">
+  <button class="back-btn" (click)="goBack()">←</button>
+
+  <h2 class="welcome">Welcome {{ vendorId }}</h2>
+
+  <div class="right-group">
+    <span class="profile-icon" (click)="goProfile()">👤</span>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2 class="title">RFQ Details</h2>
+
+  <div class="search-area">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (keyup)="applyFilter()"
+      placeholder="Search by RFQ No / Material / Description..."
+      class="search-box"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>RFQ Number</th>
+          <th>Document Type</th>
+          <th>Purchase Org</th>
+          <th>Document Date</th>
+          <th>Material</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Net Price</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let r of filteredRFQ">
+          <td>{{ r.RfqNumber }}</td>
+
+          <!-- DocType conversion -->
+          <td>
+            {{
+              r.DocType === 'AN' ? 'AN(RFQ)' :
+              r.DocType === 'NB' ? 'Standard PO' :
+              r.DocType === 'RE' ? 'Debit' : r.DocType
+            }}
+          </td>
+
+          <td>{{ r.PurchaseOrg }}</td>
+
+          <td>{{ r.DocDate | date: 'dd-MM-yyyy' }}</td>
+
+          <td>{{ r.MatNumber }}</td>
+
+          <td>{{ r.ShortText }}</td>
+
+          <td>{{ r.Quantity }}</td>
+
+          <!-- Unit conversion -->
+          <td>
+            {{
+              r.UnitMeasure === 'EA' ? 'Each' :
+              r.UnitMeasure === 'KG' ? 'Kilogram' : r.UnitMeasure
+            }}
+          </td>
+
+          <td>{{ r.NetPrice }}</td>
+
+          <td>{{ r.Currency }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

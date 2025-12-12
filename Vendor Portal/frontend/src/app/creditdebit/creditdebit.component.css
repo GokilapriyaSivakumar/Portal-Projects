@@ -1,0 +1,108 @@
+/* NAVBAR */
+.navbar {
+  background: #000;
+  color: white;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  background: #d4c1ab;
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.title-center {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* PAGE CONTENT */
+.container {
+  padding: 25px;
+}
+
+.page-title {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+/* SEARCH BAR */
+.search-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  width: 80%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.clear-btn {
+  background: #d4c1ab;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* TABLE */
+.table-wrapper {
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead tr {
+  background: #000;
+  color: white;
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+tbody tr:hover {
+  background: #f7f7f7;
+}

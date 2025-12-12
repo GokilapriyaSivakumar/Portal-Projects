@@ -1,0 +1,83 @@
+<!-- NAVBAR -->
+<div class="navbar">
+  <button class="back-btn" (click)="goBack()">←</button>
+
+  <h2 class="welcome">Welcome {{ vendorId }}</h2>
+
+  <div class="right-group">
+    <span class="profile-icon" (click)="goProfile()">👤</span>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2 class="title">Purchase Order Details</h2>
+
+  <div class="search-area">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (keyup)="onSearchKeyup()"
+      placeholder="Search by PO No / Material / Description..."
+      class="search-box"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>PO Number</th>
+          <th>Document Type</th>
+          <th>Purchase Org</th>
+          <th>Document Date</th>
+          <th>Material</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Net Price</th>
+          <th>Currency</th>
+          <th>Delivery Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let po of filteredPO">
+          <td>{{ po.PoNumber }}</td>
+
+          <td>
+            {{
+              po.DocType === 'AN' ? 'AN(RFQ)' :
+              po.DocType === 'NB' ? 'NB(Standard PO)' :
+              po.DocType === 'RE' ? 'Debit' : po.DocType
+            }}
+          </td>
+
+          <td>{{ po.PurchaseOrg }}</td>
+
+          <td>{{ po.DocDate | date : 'dd-MM-yyyy' }}</td>
+
+          <td>{{ po.Material }}</td>
+          <td>{{ po.ShortText }}</td>
+
+          <td>{{ po.Quantity }}</td>
+
+          <td>
+            {{
+              po.Unit === 'EA' ? 'Each' :
+              po.Unit === 'KG' ? 'Kilogram' : po.Unit
+            }}
+          </td>
+
+          <td>{{ po.NetPrice }}</td>
+          <td>{{ po.Currency }}</td>
+
+          <td>{{ po.DeliveryDate | date : 'dd-MM-yyyy' }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>

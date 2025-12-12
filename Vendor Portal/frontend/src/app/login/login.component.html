@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="login-box">
+    <h2>Vendor Login</h2>
+
+    <form (ngSubmit)="submitLogin()">
+      
+      <div class="input-group">
+        <span class="icon">👤</span>
+        <input type="text" placeholder="Vendor ID" [(ngModel)]="vendorId" name="vendorId" required />
+      </div>
+
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input type="{{ showPass ? 'text' : 'password' }}"
+               placeholder="Password"
+               [(ngModel)]="password"
+               name="password"
+               required />
+        <span class="eye" (click)="showPass = !showPass">👁️</span>
+      </div>
+
+      <button type="submit" class="login-btn">LOGIN</button>
+
+      <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+/* =========================
+   NAVBAR - Smaller Height
+========================= */
+.navbar {
+  background: #000;         /* Black navbar */
+  color: white;
+  padding: 15px 20px;       /* Reduced height */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Back Button */
+.back-btn {
+  background: #d4c1ab;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 20px;          /* Smaller title */
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+/* Avatar */
+.avatar {
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+/* Logout */
+.logout-btn {
+  background: #ff4b4b;
+  border: none;
+  padding: 6px 14px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+/* =========================
+   PAGE WRAPPER
+========================= */
+.container {
+  padding: 30px;
+  background: white;
+}
+
+.page-title {
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* =========================
+   PROFILE CARD (Updated)
+========================= */
+.profile-card {
+  background: #f7f9fc;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  max-width: 650px;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row label {
+  width: 180px;
+  font-weight: 600;
+  color: #222;
+}
+
+.row span {
+  flex: 1;
+  color: #333;
+}
+
+/* =========================
+   LOADING / ERROR
+========================= */
+.loading, .error {
+  font-size: 18px;
+  margin-bottom: 20px;
+}

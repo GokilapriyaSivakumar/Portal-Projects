@@ -1,0 +1,108 @@
+/* PAGE BACKGROUND */
+.container {
+  background: white;
+  padding: 20px;
+}
+
+/* NAVBAR */
+/* NAVBAR SMALL HEIGHT */
+.navbar {
+  background: #000;
+  padding: 8px 20px;   /* reduced height */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 55px;        /* reduced height */
+}
+
+/* Back Button */
+.back-btn {
+  background: #d4c1ab;
+  color: black;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Right Side Items */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-icon {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+/* Title */
+.title {
+  margin-top: 25px;
+  font-size: 26px;
+  color: #333;
+}
+
+/* Search Section */
+.search-area {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-box {
+  width: 80%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.clear-btn {
+  background: #d4c1ab;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* TABLE */
+.table-wrapper {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead tr {
+  background: #000;
+  color: white;
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+tbody tr:hover {
+  background: #f5f5f5;
+}

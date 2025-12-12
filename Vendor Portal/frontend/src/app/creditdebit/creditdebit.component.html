@@ -1,0 +1,66 @@
+<!-- NAVBAR -->
+<div class="navbar">
+  <button class="back-btn" (click)="goBack()">←</button>
+
+  <h2 class="title-center">Welcome {{ vendorId }}</h2>
+
+  <div class="right">
+    <span class="profile-icon" (click)="goProfile()">👤</span>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2 class="page-title">Credit / Debit Details</h2>
+
+  <!-- SEARCH -->
+  <div class="search-area">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search by Memo No / Amount ..."
+      class="search-box"
+      (input)="applyFilter()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Memo No</th>
+          <th>Fiscal Year</th>
+          <th>Posting Date</th>
+          <th>Amount</th>
+          <th>Doc Type</th>
+          <th>Memo Type</th>
+          <th>Created By</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let cd of filteredData">
+          <td>{{ cd.MemoNumber }}</td>
+          <td>{{ cd.FiscalYear }}</td>
+          <td>{{ cd.PostingDate | date : 'dd-MM-yyyy' }}</td>
+          <!-- <td>{{ cd.DocHeaderText }}</td> -->
+          <td>{{ cd.Amount }}</td>
+          <!-- <td>{{ cd.Currency }}</td> -->
+          <!-- <td>{{ cd.DocType }}</td> -->
+
+          <td>
+            {{
+              cd.DocType === 'RE' ? 'RE(Debit)' : cd.DocType
+            }}
+          </td>
+          <td>{{ cd.MemoType }}</td>
+          <td>{{ cd.CreatedBy }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

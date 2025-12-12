@@ -1,0 +1,75 @@
+<!-- NAVBAR -->
+<div class="navbar">
+  <button class="back-btn" (click)="goBack()">←</button>
+
+  <h2 class="welcome">Welcome {{ vendorId }}</h2>
+
+  <div class="nav-right">
+     <div class="profile-icon" (click)="goToProfile()">👤</div>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<h1 class="page-title">Invoice Details</h1>
+
+<!-- SEARCH FILTER -->
+<div class="filter-container">
+  <input
+    class="search-box"
+    type="text"
+    placeholder="Search Invoice No / Description..."
+    [(ngModel)]="filters.invoiceNumber"
+    (input)="applyFilters()"
+  />
+
+  <button class="clear-btn" (click)="clearFilters()">Clear</button>
+  <button class="print-btn" (click)="printTable()">Print</button>
+</div>
+
+<!-- TABLE -->
+<div *ngIf="invoiceListFetched && filteredInvoices.length > 0" class="table-container">
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Invoice No</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>PO No</th>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Unit</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let inv of filteredInvoices">
+
+        <td>{{ inv.InvoiceNo }}</td>
+        <td>{{ inv.InvoiceDate | date:'dd-MM-yyyy' }}</td>
+        <td>{{ inv.TotalAmount }}</td>
+        <td>{{ inv.Currency }}</td>
+        <td>{{ inv.PoNo }}</td>
+        <td>{{ inv.Description }}</td>
+        <td>{{ inv.Quantity }}</td>
+        <td>{{ formatUnit(inv.Unit) }}</td>
+
+        <td>
+          <button class="download-btn" (click)="downloadPdf(inv.InvoiceNo)">
+            <span *ngIf="!loadingPdf[inv.InvoiceNo]">⬇ Download</span>
+            <span *ngIf="loadingPdf[inv.InvoiceNo]" class="loader"></span>
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- NO DATA -->
+<div class="no-data" *ngIf="invoiceListFetched && filteredInvoices.length === 0">
+  No Invoices Found
+</div>

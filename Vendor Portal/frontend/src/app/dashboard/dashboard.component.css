@@ -1,0 +1,151 @@
+/* NAVBAR */
+.navbar {
+  background: #000;
+  color: white;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  position: relative;
+  border-bottom: 2px solid #222;
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-icon {
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+.portal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: bold;
+  pointer-events: none; /* Prevent blocking clicks */
+}
+
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-icon {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* SIDE MENU */
+.side-menu {
+  position: fixed;
+  top: 70px;
+  left: -220px;
+  width: 220px;
+  height: calc(100% - 70px);
+  background: #111;
+  color: white;
+  transition: 0.3s;
+  padding-top: 20px;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-item {
+  padding: 14px 18px;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+}
+
+.side-item:hover {
+  background: #222;
+}
+
+/* MAIN CONTENT */
+.content-area {
+  margin-left: 0;
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.content-area.shift {
+  margin-left: 220px;
+}
+
+.welcome {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* TILES */
+.tiles,
+.finance-tiles {
+  display: flex;
+  gap: 60px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.tile {
+  width: 210px;
+  height: 140px;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  padding: 20px 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* ICON */
+.icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.small-icon {
+  font-size: 38px !important;
+}
+
+/* TITLE */
+.tile-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* DESCRIPTION */
+.tile-desc {
+  font-size: 14px;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* SMALL FINANCE TILES */
+.tile.small {
+  width: 190px;
+}

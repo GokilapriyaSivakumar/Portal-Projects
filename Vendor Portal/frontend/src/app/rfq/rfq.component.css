@@ -1,0 +1,110 @@
+/* NAVBAR */
+.navbar {
+  background: #000;
+  color: white;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  border-bottom: 2px solid #222;
+}
+
+.back-btn {
+  background: #d4c1ab;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.welcome {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-icon {
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.container {
+  background: white;
+  padding: 20px;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* SEARCH */
+.search-area {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-box {
+  width: 80%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.clear-btn {
+  background: #d4c1ab;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* TABLE */
+.table-wrapper {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+thead tr {
+  background: #000;
+  color: white;
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+tbody tr:hover {
+  background: #f8f8f8;
+}
